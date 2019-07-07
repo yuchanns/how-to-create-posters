@@ -1,0 +1,6 @@
+{
+    "require": {
+        "intervention/image": "^2.5",
+        "endroid/qr-code": "^3.6"
+    }
+}
