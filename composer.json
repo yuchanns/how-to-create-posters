@@ -1,6 +1,7 @@
 {
     "require": {
         "intervention/image": "^2.5",
-        "endroid/qr-code": "^3.6"
+        "endroid/qr-code": "^3.6",
+        "ext-sockets": "^7.3"
     }
 }

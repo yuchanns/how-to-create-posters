@@ -4,8 +4,6 @@ namespace App\Controller;
 require_once 'vendor/autoload.php';
 
 use Intervention\Image\ImageManager;
-use Intervention\Image\Constraint;
-use Intervention\Image\AbstractShape;
 use Endroid\QrCode\QrCode;
 
 class Posters
@@ -14,7 +12,6 @@ class Posters
 
     public function __construct()
     {
-        // /Coding/php/image/app/controller
         $this->dir = dirname(dirname(dirname(__FILE__)));
     }
     public function getPoster()
@@ -31,7 +28,10 @@ class Posters
         // 实例化图像处理类
         $manager = new ImageManager(['driver' => 'gd']);
         // 设置等比缩放匿名函数
-        $constraint = function (Constraint $constraint) {
+        $constraint = function ($constraint) {
+            /**
+             * @var \Intervention\Image\Constraint $constraint
+             */
             $constraint->aspectRatio();
         };
         // 处理水印
@@ -59,13 +59,19 @@ class Posters
         $avatar->resize(42, null, $constraint);
         // 创建一个遮罩，用于对头像进行处理
         $mask = $manager->canvas(42, 42);
-        $mask->circle(42, 21, 21, function (AbstractShape $draw) {
+        $mask->circle(42, 21, 21, function ($draw) {
+            /**
+             * @var \Intervention\Image\AbstractShape $draw
+             */
             $draw->background('#fff');
         });
         // 对头像进行遮罩操作
         $avatar->mask($mask, false);
         // 设置字体匿名函数
         $font = function ($font) {
+            /**
+             * @var \Intervention\Image\AbstractFont $font
+             */
             $font->file('public/image/font/pingfang.ttf');
             $font->size(14);
         };
@@ -77,6 +83,9 @@ class Posters
         $canvas->text('扫码加入', 275, 635, $font);
         $canvas->insert($avatar, 'top-left', 22, 552);
         $canvas->text($username, 72, 578, function ($font) {
+            /**
+             * @var \Intervention\Image\AbstractFont $font
+             */
             $font->file('public/image/font/pingfang.ttf');
             $font->size(20);
         });

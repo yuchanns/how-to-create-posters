@@ -12,6 +12,9 @@ class HttpServer
     protected $addr;
     protected $socket;
 
+    /**
+     * @throws
+     */
     public function __construct($addr = 'localhost', $port = 9501)
     {
         $this->port = $port;
@@ -53,4 +56,4 @@ class HttpServer
     }
 }
 
-$server = (new HttpServer)->run();
+(new HttpServer)->run();
