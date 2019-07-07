@@ -35,7 +35,7 @@ class Posters
             $constraint->aspectRatio();
         };
         // 处理水印
-        $marker_path = '../../public/image/marker/yuchanns.png';
+        $marker_path = 'public/image/marker/yuchanns.png';
         $marker = $manager->make($marker_path);
         $marker->resize(null, 43, $constraint);
         // 处理二维码
