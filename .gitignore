@@ -1,4 +1,5 @@
 .DS_Store
 vendor/*
 public/image/promotion/*
+public/image/qrcode/*
 !.gitkeep

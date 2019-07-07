@@ -76,21 +76,22 @@ class Posters
             $font->size(14);
         };
         // 创建空白画布
+        // 530
         $canvas = $manager->canvas(375, 120 + $poster_height, '#fff');
         $canvas->insert($poster, 'top-left');
         $canvas->insert($marker, 'top-left', 20, 20);
-        $canvas->insert($qr, 'top-left', 271, 542);
-        $canvas->text('扫码加入', 275, 635, $font);
-        $canvas->insert($avatar, 'top-left', 22, 552);
-        $canvas->text($username, 72, 578, function ($font) {
+        $canvas->insert($qr, 'top-left', 271, $poster_height + 12);
+        $canvas->text('扫码加入', 275, $poster_height + 105, $font);
+        $canvas->insert($avatar, 'top-left', 22, $poster_height + 22);
+        $canvas->text($username, 72, $poster_height + 48, function ($font) {
             /**
              * @var \Intervention\Image\AbstractFont $font
              */
             $font->file('public/image/font/pingfang.ttf');
             $font->size(20);
         });
-        $canvas->text('邀请您加入“工作室”', 22, 615, $font);
-        $canvas->text('邀请码：' . $invitation, 22, 635, $font);
+        $canvas->text('邀请您加入“工作室”', 22, $poster_height + 85, $font);
+        $canvas->text('邀请码：' . $invitation, 22, $poster_height + 105, $font);
         $canvas->circle(20, 22, 552);
         // 保存为渐进式jpeg
         $canvas->interlace(true);
@@ -101,7 +102,7 @@ class Posters
     {
         if (!is_file($path)) {
             // Create a basic QR code
-            $qrCode = new QrCode('https://www.yuchanns.xyz');
+            $qrCode = new QrCode('https://jq.qq.com/?_wv=1027&k=5do31Yv');
             $qrCode->setSize(300);
 
             // Set advanced options
