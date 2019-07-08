@@ -26,7 +26,7 @@ class Posters
     /**
      * 在原背景图上插入名片
      *
-     * @param [string] $path 图片路径
+     * @param string $path 图片路径
      * @return void
      */
     private function createPoster($path)
